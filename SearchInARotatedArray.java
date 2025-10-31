@@ -1,5 +1,7 @@
 package dsa2025;
 
+import java.util.List;
+
 /**
  * There is an integer array nums sorted in ascending order (with distinct
  * values).
@@ -103,4 +105,56 @@ public class SearchInARotatedArray {
         }
         return -1;
     }
+
+    public static int search_element(List<Integer> arr, int target) {
+        int start = 0;
+        int end = arr.size()-1;
+        
+        if(arr.get(start) <= arr.get(end)){
+            return binarySearch(arr, start, end, target);
+        } else {
+            int pivot = findPivot(arr);
+            if (pivot == 0) {
+                return binarySearch(arr, 0, end, target);
+            }
+            if(target >= arr.get(0) && target <= arr.get(pivot-1)){
+                return binarySearch(arr, 0, pivot-1, target);
+            } else {
+                return binarySearch(arr, pivot, end, target);
+            }
+        }
+    }
+    
+    public static int findPivot(List<Integer> arr){
+        int start = 0;
+        int end = arr.size()-1;
+        
+        while(start < end){
+            int mid = start + (end - start)/2;
+            if(arr.get(mid) > arr.get(end)){
+                start = mid+1;
+            } else {
+                end = mid;
+            }
+        }
+        return start;
+    }
+    
+    public static int binarySearch(List<Integer> arr, int left, int right, int target){
+        while(left <= right){
+            int mid = left + (right - left)/2;
+            if(arr.get(mid) == target){
+                return mid;
+            } else if(arr.get(mid) > target){
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+
+
+
 }
