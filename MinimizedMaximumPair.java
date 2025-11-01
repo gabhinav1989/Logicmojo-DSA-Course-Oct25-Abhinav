@@ -2,6 +2,7 @@ package dsa2025;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -44,7 +45,8 @@ import java.util.List;
  */
 public class MinimizedMaximumPair {
     public static void main(String[] args) {
-        System.out.println(findMinimizedMaxSum(new int[] { 4,1,5,1,2,5,1,5,5,4 }));
+        System.out.println(findMinimizedMaxSum(new int[] { 11, 4, 1, 5, 1, 2, 5, 1, 5, 5, 4 }));
+        System.out.println(minPairSum(10, Arrays.asList(11, 4, 1, 5, 1, 2, 5, 1, 5, 5, 4)));
     }
 
     private static int findMinimizedMaxSum(int[] arr) {
@@ -54,8 +56,20 @@ public class MinimizedMaximumPair {
 
         Arrays.sort(arr);
         int sum = 0;
-        while(i < j){
+        while (i < j) {
             sum = Math.max(sum, arr[i++] + arr[j--]);
+        }
+        return sum;
+
+    }
+
+    public static int minPairSum(int n, List<Integer> arr) {
+        int start = 0;
+        int end = n - 1;
+        Collections.sort(arr, (a, b) -> b - a); // here comparator is needed because this is sorted by natural ordering by default.
+        int sum = 0;
+        while (start < end) {
+            sum = Math.max(sum, arr.get(start++) + arr.get(end--));
         }
         return sum;
 
