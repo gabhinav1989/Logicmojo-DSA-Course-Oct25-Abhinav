@@ -1,4 +1,4 @@
-package dsa2025;
+package dsa2025.assignment;
 /**
 You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.
 

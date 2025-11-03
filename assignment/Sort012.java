@@ -1,10 +1,9 @@
-package dsa2025;
+package dsa2025.assignment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.swing.event.SwingPropertyChangeSupport;
 
 /**
  * Given an array of size N containing only 0s, 1s, and 2s;

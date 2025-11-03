@@ -1,6 +1,5 @@
-package dsa2025;
+package dsa2025.assignment;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;

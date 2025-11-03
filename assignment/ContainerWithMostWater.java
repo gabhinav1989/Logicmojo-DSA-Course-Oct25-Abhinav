@@ -1,4 +1,4 @@
-package dsa2025;
+package dsa2025.assignment;
 
 /**
  * You are given an integer array height of length n. There are n vertical lines

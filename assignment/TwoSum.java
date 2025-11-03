@@ -1,4 +1,4 @@
-package dsa2025;
+package dsa2025.assignment;
 
 import java.util.Arrays;
 import java.util.HashMap;

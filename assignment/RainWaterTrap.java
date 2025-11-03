@@ -1,4 +1,4 @@
-package dsa2025;
+package dsa2025.assignment;
 
 public class RainWaterTrap {
     public static void main(String[] args) {
