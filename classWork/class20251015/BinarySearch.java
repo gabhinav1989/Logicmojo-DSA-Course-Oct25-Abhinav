@@ -1,4 +1,4 @@
-package class20251015;
+package dsa2025.classWork.class20251015;
 
 public class BinarySearch {
     // public static void main(String[] args) {
