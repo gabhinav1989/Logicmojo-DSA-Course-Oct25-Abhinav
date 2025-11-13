@@ -1,4 +1,7 @@
-public class Solution {
+import java.io.BufferedWriter;
+import java.io.IOException;
+
+public class InsertNodeAtPosition {
     static class SinglyLinkedListNode {
         public int data;
         public SinglyLinkedListNode next;
