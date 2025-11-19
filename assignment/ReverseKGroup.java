@@ -9,40 +9,32 @@ public class ReverseKGroup {
         System.out.println(singleLL.toString());
     }
 
-    public static ListNode reverseKGroup(ListNode head, int k) {
+    public static SinglyLinkedListNode reverseKGroup(SinglyLinkedListNode head, int k) {
         if (head == null || k == 1) {
             return head;
         }
         
-        ListNode dummy = new ListNode(0);
+        SinglyLinkedListNode dummy = new SinglyLinkedListNode(0);
         dummy.next = head;
-        ListNode prevGroupEnd = dummy; // Points to the end of the previous reversed group
-        ListNode curr = head;
+        SinglyLinkedListNode prevGroupEnd = dummy; 
+        SinglyLinkedListNode curr = head;
         
         while (curr != null) {
-            List<ListNode> group = new ArrayList<>(k);
-            ListNode groupStart = curr;
+            List<SinglyLinkedListNode> group = new ArrayList<>(k);
+            SinglyLinkedListNode groupStart = curr;
             
-            // Collect k nodes (or remaining nodes if less than k)
             for (int i = 0; i < k && curr != null; i++) {
                 group.add(curr);
                 curr = curr.next;
             }
             
-            // If we have exactly k nodes, reverse them
             if (group.size() == k) {
-                ListNode nextAfterGroup = curr; // Save what comes after the group
-                
-                // Reverse the internal links: each node points to the previous one
-                // Start from the last node and work backwards
+                SinglyLinkedListNode nextAfterGroup = curr;
                 for (int i = k - 1; i > 0; i--) {
                     group.get(i).next = group.get(i - 1);
                 }
                 
-                // The first node (now last in reversed group) should point to what comes after
                 group.get(0).next = nextAfterGroup;
-                
-                // Connect the previous group's end to the new head of reversed group
                 prevGroupEnd.next = group.get(k - 1);
                 
                 // Update prevGroupEnd to point to the new end (first node of original group)
@@ -59,20 +51,20 @@ public class ReverseKGroup {
 }
 
 class SinglyLinkedList{
-    ListNode head;
-    ListNode tail;
+    SinglyLinkedListNode head;
+    SinglyLinkedListNode tail;
 
     void addAll(int[] nums){
         if(nums == null || nums.length == 0){
             return;
         }
         
-        ListNode curr;
+        SinglyLinkedListNode curr;
         int startIndex;
         
         // If head is null, create head from first element
         if(head == null){
-            this.head = new ListNode(nums[0]);
+            this.head = new SinglyLinkedListNode(nums[0]);
             curr = head;
             startIndex = 1; // Start from index 1 since we used nums[0] for head
         } else {
@@ -86,7 +78,7 @@ class SinglyLinkedList{
         
         // Add remaining elements
         for(int i = startIndex; i < nums.length; i++){
-            curr.next = new ListNode(nums[i]);
+            curr.next = new SinglyLinkedListNode(nums[i]);
             curr = curr.next;
         }
     }
@@ -95,7 +87,7 @@ class SinglyLinkedList{
         if(head == null){
             return "[ ]";
         }
-        ListNode curr = this.head;
+        SinglyLinkedListNode curr = this.head;
         StringBuilder sb = new StringBuilder("[ ");
         while(curr.next != null){
             sb.append(curr.val + ", ");
@@ -107,17 +99,17 @@ class SinglyLinkedList{
     }
 
 }
-class ListNode {
+class SinglyLinkedListNode {
     int val;
-    ListNode next;
+    SinglyLinkedListNode next;
 
-    ListNode() {}
+    SinglyLinkedListNode() {}
 
-    ListNode(int val) {
+    SinglyLinkedListNode(int val) {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    SinglyLinkedListNode(int val, SinglyLinkedListNode next) {
         this.val = val;
         this.next = next;
     }

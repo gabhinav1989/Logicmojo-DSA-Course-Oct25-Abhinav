@@ -1,4 +1,4 @@
-package dsa2025.classWork.class20251031;
+package classWork.class20251031;
 
 public class Class20251031 {
     public static void main(String[] args){

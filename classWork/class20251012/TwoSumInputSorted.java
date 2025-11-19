@@ -1,4 +1,4 @@
-package dsa2025.classWork.class20251012;
+package classWork.class20251012;
 
 import java.util.Arrays;
 

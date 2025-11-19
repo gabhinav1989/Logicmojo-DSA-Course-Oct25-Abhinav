@@ -1,0 +1,43 @@
+What is cache?
+Types of cache
+ - external
+ - in process
+ - cdn
+ - client side cache
+Architecture of cache
+1. cache aside
+    App server -> cache(Redis cache), db
+    - Cache hit or cache miss
+    - if cache miss, APP itself hits the db. fetches the data and put it to cache and return to user.
+    -  time taken is little longer if cache miss happens.
+2. Write through
+    App server -> writes to cache  -> then synchronize to db real time.
+3. Write behind
+    App server -> writes to cache. but saving to db happens asynchronously
+4. Read through
+    App server, cache, db.
+    -> check cache and return if found.
+    -> if not found, cache will read from db and return the response.
+
+Cache eviction Policy:
+----------------------
+ - Memory is small and cache can become full.
+ - FIFO - First in First out
+    - first written record will be evicted first.
+    - Least used eviction policy.
+ - LRU - Least Recently used.
+    - we may not need it anymore, hence removed.
+ - LFU - Least Frequently used.
+ - TTL - Time to live
+    - We maintain time to live and remove it if that TTL expires.
+
+
+epoch time
+vertical scaling vs horizontal scaling
+
+
+LRU In depth and designing.
+---------------------------
+Linked List advantages: Deletion is easier operation. 
+
+SOLID Principles

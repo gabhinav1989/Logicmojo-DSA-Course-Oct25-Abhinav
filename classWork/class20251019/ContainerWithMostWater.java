@@ -1,4 +1,4 @@
-package dsa2025.classWork.class20251019;
+package classWork.class20251019;
 
 public class ContainerWithMostWater {
     public static void main(String[] args){

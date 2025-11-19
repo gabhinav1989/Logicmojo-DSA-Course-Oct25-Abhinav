@@ -1,0 +1,18 @@
+Detecting a cycle in a linked list can be achieved using various methods, 
+with the most common and efficient being Floyd's Cycle-Finding Algorithm, 
+also known as the "Tortoise and Hare" algorithm.
+
+Floyd's Cycle-Finding Algorithm (Tortoise and Hare):
+Initialize Pointers: Create two pointers, slow and fast, 
+both starting at the head of the linked list.
+
+Traverse at Different Speeds:
+Advance the slow pointer by one node at each step (slow = slow.next).
+Advance the fast pointer by two nodes at each step (fast = fast.next.next).
+Check for Meeting Point: In each iteration, 
+check if slow and fast pointers are pointing to the same node.
+If slow == fast, a cycle is detected, and the function returns true.
+
+Handle End of List: If the fast pointer (or fast.next) reaches null before slow and fast meet, 
+it means there is no cycle in the linked list, and the function returns false. 
+This occurs when the fast pointer reaches the end of the list, indicating a linear structure.
