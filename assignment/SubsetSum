@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class SubsetSum {
+    public static void main(String[] args) {
+        System.out.println(findSum(Arrays.asList(1, 2)));
+    }
+
+    private static List<Integer> findSum(List<Integer> arr) {
+        List<Integer> result = new ArrayList<>();
+        List<Integer> bag = new ArrayList<>();
+        Integer[] x = arr.toArray(new Integer[0]);
+        helper(result, bag, 0, x);
+        result.sort((a, b)-> a-b);
+        return result;
+    }
+
+    private static void helper(List<Integer> result, List<Integer> bag, int n, Integer[] arr) {
+        if(n==arr.length) {
+            int sum = 0;
+            for(int i=0;i<bag.size();i++){
+                sum += bag.get(i);
+            }
+            result.add(sum);
+            return;
+        }
+        helper(result, bag, n + 1, arr);
+        bag.add(arr[n]);
+        helper(result, bag, n+1, arr);
+        bag.remove(bag.size()-1);
+    }
+}
